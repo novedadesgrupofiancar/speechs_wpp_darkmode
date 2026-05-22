@@ -1,185 +1,82 @@
 
 <style>
-  .cc-root {
-    background: #0f1117;
-    border-radius: 16px;
-    padding: 24px;
-    font-family: var(--font-sans);
-    color: #e2e8f0;
-    min-height: 400px;
-  }
-  .cc-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 24px;
-  }
-  .cc-logo {
-    width: 36px; height: 36px;
-    background: linear-gradient(135deg, #3b82f6, #6366f1);
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
-  }
-  .cc-title { font-size: 15px; font-weight: 500; color: #f1f5f9; }
-  .cc-sub { font-size: 12px; color: #64748b; }
-
-  .tabs-row {
-    display: flex; gap: 6px; margin-bottom: 20px;
-    background: #1e2130;
-    padding: 5px;
-    border-radius: 12px;
-    width: fit-content;
-  }
-  .tab-btn {
-    padding: 7px 18px;
-    border-radius: 8px;
-    border: none;
-    background: transparent;
-    color: #64748b;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.25s cubic-bezier(.4,0,.2,1);
-    font-family: var(--font-sans);
-    display: flex; align-items: center; gap: 6px;
-  }
-  .tab-btn.active {
-    background: #3b82f6;
-    color: #fff;
-    box-shadow: 0 2px 12px #3b82f640;
-  }
-
-  .brand-row {
-    display: flex; gap: 6px; margin-bottom: 16px;
-  }
-  .brand-btn {
-    padding: 5px 14px;
-    border-radius: 999px;
-    border: 1px solid #2d3148;
-    background: transparent;
-    color: #64748b;
-    font-size: 12px;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: var(--font-sans);
-  }
-  .brand-btn.active {
-    background: #1e2d40;
-    border-color: #3b82f6;
-    color: #60a5fa;
-  }
-
-  .panels-wrapper { position: relative; }
-  .section { display: none; animation: fadeSlide 0.3s cubic-bezier(.4,0,.2,1); }
-  .section.active { display: block; }
-  @keyframes fadeSlide {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .speech-panel { display: none; flex-direction: column; gap: 10px; }
-  .speech-panel.active { display: flex; animation: fadeSlide 0.25s cubic-bezier(.4,0,.2,1); }
-
-  .s-card {
-    background: #1a1d2e;
-    border: 1px solid #2d3148;
-    border-radius: 14px;
-    padding: 16px 18px;
-    transition: border-color 0.2s;
-  }
-  .s-card:hover { border-color: #3b4368; }
-
-  .s-label {
-    font-size: 11px;
-    font-weight: 500;
-    color: #64748b;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    display: flex; align-items: center; gap: 5px;
-  }
-  .s-label i { font-size: 13px; color: #3b82f6; }
-
-  .s-text {
-    background: #0f1117;
-    border: 1px solid #2d3148;
-    border-radius: 10px;
-    padding: 14px 16px;
-    font-size: 13.5px;
-    line-height: 1.7;
-    color: #cbd5e1;
-    white-space: pre-wrap;
-    font-family: var(--font-mono);
-  }
-
-  .s-footer {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-top: 10px;
-  }
-  .copy-btn {
-    display: flex; align-items: center; gap: 5px;
-    padding: 6px 14px;
-    border-radius: 8px;
-    border: 1px solid #2d3148;
-    background: transparent;
-    color: #94a3b8;
-    font-size: 12px;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: var(--font-sans);
-  }
-  .copy-btn:hover { background: #1e2130; border-color: #3b82f6; color: #60a5fa; }
-  .copy-btn.copied { background: #0d2d1a; border-color: #22c55e; color: #4ade80; }
-
-  .arrow-div {
-    display: flex; align-items: center; gap: 6px;
-    color: #334155; font-size: 12px;
-    padding: 2px 4px;
-  }
-  .arrow-div i { font-size: 13px; }
-  .dot {
-    display: inline-block;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #22c55e;
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
+.root{background:#0f1117;border-radius:16px;padding:24px;color:#e2e8f0;font-family:var(--font-sans)}
+.hdr{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.logo{width:36px;height:36px;background:linear-gradient(135deg,#3b82f6,#6366f1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.title{font-size:15px;font-weight:500;color:#f1f5f9}
+.sub{font-size:12px;color:#64748b}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite;margin-left:4px;vertical-align:2px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.notice{background:#1a2035;border:1px solid #f59e0b44;border-radius:10px;padding:10px 14px;font-size:12px;color:#fbbf24;margin-bottom:18px;display:flex;align-items:flex-start;gap:8px}
+.notice i{margin-top:1px;flex-shrink:0}
+.tabs{display:flex;gap:6px;margin-bottom:18px;background:#1e2130;padding:5px;border-radius:12px;width:fit-content;flex-wrap:wrap}
+.tab{padding:6px 14px;border-radius:8px;border:none;background:transparent;color:#64748b;font-size:12px;cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);font-family:var(--font-sans);display:flex;align-items:center;gap:5px}
+.tab.active{background:#3b82f6;color:#fff;box-shadow:0 2px 12px #3b82f640}
+.brand-row{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.brand-btn{padding:4px 13px;border-radius:999px;border:1px solid #2d3148;background:transparent;color:#64748b;font-size:12px;cursor:pointer;transition:all .2s;font-family:var(--font-sans)}
+.brand-btn.active{background:#1e2d40;border-color:#3b82f6;color:#60a5fa}
+.section{display:none;animation:fs .28s cubic-bezier(.4,0,.2,1)}
+.section.active{display:block}
+@keyframes fs{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.panel{display:none;flex-direction:column;gap:10px}
+.panel.active{display:flex;animation:fs .22s cubic-bezier(.4,0,.2,1)}
+.card{background:#1a1d2e;border:1px solid #2d3148;border-radius:14px;padding:14px 16px;transition:border-color .2s}
+.card:hover{border-color:#3b4368}
+.lbl{font-size:11px;font-weight:500;color:#64748b;letter-spacing:.07em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:5px}
+.lbl i{font-size:13px;color:#3b82f6}
+.txt{background:#0f1117;border:1px solid #2d3148;border-radius:10px;padding:13px 15px;font-size:13px;line-height:1.72;color:#cbd5e1;white-space:pre-wrap;font-family:var(--font-mono)}
+.foot{display:flex;justify-content:flex-end;margin-top:9px}
+.copy-btn{display:flex;align-items:center;gap:5px;padding:5px 13px;border-radius:8px;border:1px solid #2d3148;background:transparent;color:#94a3b8;font-size:12px;cursor:pointer;transition:all .2s;font-family:var(--font-sans)}
+.copy-btn:hover{background:#1e2130;border-color:#3b82f6;color:#60a5fa}
+.copy-btn.done{background:#0d2d1a;border-color:#22c55e;color:#4ade80}
+.arr{color:#334155;font-size:12px;padding:2px 4px;display:flex;align-items:center;gap:5px}
 </style>
 
-<div class="cc-root">
-  <h2 class="sr-only">Speeches de WhatsApp — Contact Center Grupo Fiancar</h2>
-
-  <div class="cc-header">
-    <div class="cc-logo" aria-hidden="true">💬</div>
-    <div>
-      <div class="cc-title">Speeches WhatsApp <span class="dot"></span></div>
-      <div class="cc-sub">Contact Center — Grupo Fiancar</div>
-    </div>
+<div class="root">
+<h2 class="sr-only">Speeches de WhatsApp para Contact Center — Grupo Fiancar</h2>
+<div class="hdr">
+  <div class="logo" aria-hidden="true">💬</div>
+  <div>
+    <div class="title">Speeches WhatsApp <span class="dot"></span></div>
+    <div class="sub">Contact Center — Grupo Fiancar</div>
   </div>
+</div>
 
-  <div class="tabs-row">
-    <button class="tab-btn active" onclick="switchTab('agenda', this)">
-      <i class="ti ti-calendar" aria-hidden="true"></i> Solicitud de agenda
-    </button>
-    <button class="tab-btn" onclick="switchTab('lead', this)">
-      <i class="ti ti-user-plus" aria-hidden="true"></i> Consulta por modelo
-    </button>
+<div class="notice">
+  <i class="ti ti-alert-triangle" aria-hidden="true"></i>
+  <span>Leer el mensaje del cliente antes de enviar el saludo. Si ya indicó qué necesita, ir directamente al speech del caso.</span>
+</div>
+
+<div class="tabs" id="main-tabs">
+  <button class="tab active" onclick="switchTab('saludo',this)"><i class="ti ti-hand-stop" aria-hidden="true"></i> Saludo</button>
+  <button class="tab" onclick="switchTab('agenda',this)"><i class="ti ti-calendar" aria-hidden="true"></i> Agenda</button>
+  <button class="tab" onclick="switchTab('lead',this)"><i class="ti ti-user-plus" aria-hidden="true"></i> Consulta modelo</button>
+  <button class="tab" onclick="switchTab('financiacion',this)"><i class="ti ti-credit-card" aria-hidden="true"></i> Financiación</button>
+  <button class="tab" onclick="switchTab('permuta',this)"><i class="ti ti-arrows-exchange" aria-hidden="true"></i> Permuta</button>
+  <button class="tab" onclick="switchTab('repuestos',this)"><i class="ti ti-tool" aria-hidden="true"></i> Repuestos</button>
+  <button class="tab" onclick="switchTab('tasaciones',this)"><i class="ti ti-scale" aria-hidden="true"></i> Tasaciones</button>
+  <button class="tab" onclick="switchTab('ex2',this)"><i class="ti ti-car" aria-hidden="true"></i> Modelo EX2</button>
+  <button class="tab" onclick="switchTab('testdrive',this)"><i class="ti ti-steering-wheel" aria-hidden="true"></i> Test drive</button>
+</div>
+
+<div id="saludo" class="section active">
+  <div class="card">
+    <div class="lbl"><i class="ti ti-message-circle" aria-hidden="true"></i> Saludo inicial — Marcas y Chevrolet</div>
+    <div class="txt" id="s-saludo">Buenas [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
+¿En qué te puedo ayudar?</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-saludo',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
   </div>
+</div>
 
-  <div id="agenda" class="section active">
-    <div class="brand-row">
-      <button class="brand-btn active" onclick="switchBrand('agenda','marcas',this)">Marcas</button>
-      <button class="brand-btn" onclick="switchBrand('agenda','chevrolet',this)">Chevrolet</button>
-    </div>
-
-    <div id="agenda-marcas" class="speech-panel active">
-      <div class="s-card">
-        <div class="s-label"><i class="ti ti-message-circle" aria-hidden="true"></i> Saludo inicial</div>
-        <div class="s-text" id="am1">Gracias por comunicarte con Grupo Fiancar, mi nombre es [NOMBRE] 😊
+<div id="agenda" class="section">
+  <div class="brand-row">
+    <button class="brand-btn active" onclick="switchBrand('agenda','marcas',this)">Marcas</button>
+    <button class="brand-btn" onclick="switchBrand('agenda','chevrolet',this)">Chevrolet</button>
+  </div>
+  <div id="agenda-marcas" class="panel active">
+    <div class="card">
+      <div class="lbl"><i class="ti ti-message-circle" aria-hidden="true"></i> Solicitud de datos</div>
+      <div class="txt" id="s-ag-m1">Gracias por comunicarte con Grupo Fiancar, mi nombre es [NOMBRE] 😊
 
 A continuación te informo sobre las fechas disponibles en nuestros talleres:
 
@@ -198,35 +95,26 @@ Para poder realizar la agenda, necesito los siguientes datos:
 • Kilometraje:
 • Turno preferido: Mañana / Tarde
 
-Una vez que me indiques en qué taller te queda mejor y los datos solicitados, procedemos con la agenda. Te asignaremos la primera hora disponible. Si tenés preferencia por un horario en particular, indicánoslo y te confirmamos disponibilidad.</div>
-        <div class="s-footer">
-          <span></span>
-          <button class="copy-btn" onclick="copyText('am1',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button>
-        </div>
-      </div>
-
-      <div class="arrow-div"><i class="ti ti-arrow-down" aria-hidden="true"></i> cuando el cliente envía sus datos</div>
-
-      <div class="s-card">
-        <div class="s-label"><i class="ti ti-circle-check" aria-hidden="true"></i> Confirmación de agenda</div>
-        <div class="s-text" id="am2">Gracias por aguardar 🙏
+Una vez que me indiques en qué taller te queda mejor y los datos solicitados, procedemos. Te asignaremos la primera hora disponible. Si tenés preferencia por un horario en particular, indicánoslo y te confirmamos disponibilidad.</div>
+      <div class="foot"><button class="copy-btn" onclick="cp('s-ag-m1',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+    </div>
+    <div class="arr"><i class="ti ti-arrow-down" aria-hidden="true"></i> cuando el cliente envía sus datos</div>
+    <div class="card">
+      <div class="lbl"><i class="ti ti-circle-check" aria-hidden="true"></i> Confirmación</div>
+      <div class="txt" id="s-ag-m2">Gracias por aguardar 🙏
 
 Tu vehículo quedó agendado para el día *[DÍA]* a las *[HORA]* hs.
 
-El día anterior a tu visita nos comunicaremos para confirmar el turno.
+El día anterior nos comunicaremos para confirmar el turno.
 
 ¡Que tengas un excelente día! 😊</div>
-        <div class="s-footer">
-          <span></span>
-          <button class="copy-btn" onclick="copyText('am2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button>
-        </div>
-      </div>
+      <div class="foot"><button class="copy-btn" onclick="cp('s-ag-m2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
     </div>
-
-    <div id="agenda-chevrolet" class="speech-panel">
-      <div class="s-card">
-        <div class="s-label"><i class="ti ti-message-circle" aria-hidden="true"></i> Saludo inicial</div>
-        <div class="s-text" id="ac1">Gracias por comunicarte con Chevrolet Montevideo, mi nombre es [NOMBRE] 😊
+  </div>
+  <div id="agenda-chevrolet" class="panel">
+    <div class="card">
+      <div class="lbl"><i class="ti ti-message-circle" aria-hidden="true"></i> Solicitud de datos</div>
+      <div class="txt" id="s-ag-c1">Gracias por comunicarte con Chevrolet Montevideo, mi nombre es [NOMBRE] 😊
 
 A continuación te informo sobre las fechas disponibles en nuestro taller:
 
@@ -242,42 +130,33 @@ Para poder realizar la agenda, necesito los siguientes datos:
 • Kilometraje:
 • Turno preferido: Mañana / Tarde
 
-Una vez que me envíes los datos, procedemos con la agenda. Te asignaremos la primera hora disponible. Si tenés preferencia por un horario en particular, indicánoslo y te confirmamos disponibilidad.</div>
-        <div class="s-footer">
-          <span></span>
-          <button class="copy-btn" onclick="copyText('ac1',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button>
-        </div>
-      </div>
-
-      <div class="arrow-div"><i class="ti ti-arrow-down" aria-hidden="true"></i> cuando el cliente envía sus datos</div>
-
-      <div class="s-card">
-        <div class="s-label"><i class="ti ti-circle-check" aria-hidden="true"></i> Confirmación de agenda</div>
-        <div class="s-text" id="ac2">Gracias por aguardar 🙏
+Una vez que me envíes los datos, procedemos. Te asignaremos la primera hora disponible. Si tenés preferencia por un horario en particular, indicánoslo y te confirmamos disponibilidad.</div>
+      <div class="foot"><button class="copy-btn" onclick="cp('s-ag-c1',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+    </div>
+    <div class="arr"><i class="ti ti-arrow-down" aria-hidden="true"></i> cuando el cliente envía sus datos</div>
+    <div class="card">
+      <div class="lbl"><i class="ti ti-circle-check" aria-hidden="true"></i> Confirmación</div>
+      <div class="txt" id="s-ag-c2">Gracias por aguardar 🙏
 
 Tu vehículo quedó agendado para el día *[DÍA]* a las *[HORA]* hs.
 
-El día anterior a tu visita nos comunicaremos para confirmar el turno.
+El día anterior nos comunicaremos para confirmar el turno.
 
 ¡Que tengas un excelente día! 😊</div>
-        <div class="s-footer">
-          <span></span>
-          <button class="copy-btn" onclick="copyText('ac2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button>
-        </div>
-      </div>
+      <div class="foot"><button class="copy-btn" onclick="cp('s-ag-c2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
     </div>
   </div>
+</div>
 
-  <div id="lead" class="section">
-    <div class="brand-row">
-      <button class="brand-btn active" onclick="switchBrand('lead','marcas',this)">Marcas</button>
-      <button class="brand-btn" onclick="switchBrand('lead','chevrolet',this)">Chevrolet</button>
-    </div>
-
-    <div id="lead-marcas" class="speech-panel active">
-      <div class="s-card">
-        <div class="s-label"><i class="ti ti-message-circle" aria-hidden="true"></i> Consulta inicial</div>
-        <div class="s-text" id="lm1">Gracias por comunicarte con Grupo Fiancar, mi nombre es [NOMBRE] 😊
+<div id="lead" class="section">
+  <div class="brand-row">
+    <button class="brand-btn active" onclick="switchBrand('lead','marcas',this)">Marcas</button>
+    <button class="brand-btn" onclick="switchBrand('lead','chevrolet',this)">Chevrolet</button>
+  </div>
+  <div id="lead-marcas" class="panel active">
+    <div class="card">
+      <div class="lbl"><i class="ti ti-message-circle" aria-hidden="true"></i> Consulta inicial</div>
+      <div class="txt" id="s-ld-m1">Gracias por comunicarte con Grupo Fiancar, mi nombre es [NOMBRE] 😊
 
 ¿Qué sucursal preferís?
 
@@ -291,84 +170,162 @@ Para derivarte con un asesor comercial, necesito los siguientes datos:
 • Modelo de interés:
 • Nombre de contacto:
 • Correo electrónico:</div>
-        <div class="s-footer">
-          <span></span>
-          <button class="copy-btn" onclick="copyText('lm1',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button>
-        </div>
-      </div>
-
-      <div class="arrow-div"><i class="ti ti-arrow-down" aria-hidden="true"></i> cuando el cliente envía sus datos</div>
-
-      <div class="s-card">
-        <div class="s-label"><i class="ti ti-circle-check" aria-hidden="true"></i> Cierre de derivación</div>
-        <div class="s-text" id="lm2">¡Gracias por la información! 🙌
+      <div class="foot"><button class="copy-btn" onclick="cp('s-ld-m1',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+    </div>
+    <div class="arr"><i class="ti ti-arrow-down" aria-hidden="true"></i> cuando el cliente envía sus datos</div>
+    <div class="card">
+      <div class="lbl"><i class="ti ti-circle-check" aria-hidden="true"></i> Cierre</div>
+      <div class="txt" id="s-ld-m2">¡Gracias por la información! 🙌
 
 Uno de nuestros asesores comerciales se pondrá en contacto contigo a la brevedad.
 
 ¡Que tengas un excelente día! 😊</div>
-        <div class="s-footer">
-          <span></span>
-          <button class="copy-btn" onclick="copyText('lm2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button>
-        </div>
-      </div>
+      <div class="foot"><button class="copy-btn" onclick="cp('s-ld-m2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
     </div>
-
-    <div id="lead-chevrolet" class="speech-panel">
-      <div class="s-card">
-        <div class="s-label"><i class="ti ti-message-circle" aria-hidden="true"></i> Consulta inicial</div>
-        <div class="s-text" id="lc1">Gracias por comunicarte con Chevrolet Montevideo, mi nombre es [NOMBRE] 😊
+  </div>
+  <div id="lead-chevrolet" class="panel">
+    <div class="card">
+      <div class="lbl"><i class="ti ti-message-circle" aria-hidden="true"></i> Consulta inicial</div>
+      <div class="txt" id="s-ld-c1">Gracias por comunicarte con Chevrolet Montevideo, mi nombre es [NOMBRE] 😊
 
 Para derivarte con un asesor comercial, necesito los siguientes datos:
 
 • Modelo de interés:
 • Nombre de contacto:
 • Correo electrónico:</div>
-        <div class="s-footer">
-          <span></span>
-          <button class="copy-btn" onclick="copyText('lc1',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button>
-        </div>
-      </div>
-
-      <div class="arrow-div"><i class="ti ti-arrow-down" aria-hidden="true"></i> cuando el cliente envía sus datos</div>
-
-      <div class="s-card">
-        <div class="s-label"><i class="ti ti-circle-check" aria-hidden="true"></i> Cierre de derivación</div>
-        <div class="s-text" id="lc2">¡Gracias por la información! 🙌
+      <div class="foot"><button class="copy-btn" onclick="cp('s-ld-c1',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+    </div>
+    <div class="arr"><i class="ti ti-arrow-down" aria-hidden="true"></i> cuando el cliente envía sus datos</div>
+    <div class="card">
+      <div class="lbl"><i class="ti ti-circle-check" aria-hidden="true"></i> Cierre</div>
+      <div class="txt" id="s-ld-c2">¡Gracias por la información! 🙌
 
 Uno de nuestros asesores comerciales se pondrá en contacto contigo a la brevedad.
 
 ¡Que tengas un excelente día! 😊</div>
-        <div class="s-footer">
-          <span></span>
-          <button class="copy-btn" onclick="copyText('lc2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button>
-        </div>
-      </div>
+      <div class="foot"><button class="copy-btn" onclick="cp('s-ld-c2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
     </div>
   </div>
 </div>
 
+<div id="financiacion" class="section">
+  <div class="card">
+    <div class="lbl"><i class="ti ti-credit-card" aria-hidden="true"></i> Financiación — Marcas y Chevrolet</div>
+    <div class="txt" id="s-fin">En Grupo Fiancar te ofrecemos múltiples opciones para financiar tu vehículo nuevo o usado:
+
+💳 *Financiación propia:*
+▸ Hasta el 60% del valor
+▸ Hasta 37 cuotas en dólares
+▸ Hasta 24 cuotas en pesos o unidades indexadas
+
+🏦 *Financiación externa:*
+▸ 100% a través de Mi Auto Santander
+▸ Con el banco de tu preferencia
+
+🔄 También podemos tomar tu usado como parte de pago.
+
+¿Querés que te pongamos en contacto con un asesor para más detalles?</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-fin',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+</div>
+
+<div id="permuta" class="section">
+  <div class="card">
+    <div class="lbl"><i class="ti ti-arrows-exchange" aria-hidden="true"></i> Permuta — Solo Marcas</div>
+    <div class="txt" id="s-per">Sí, podemos recibir tu usado como parte de pago. Aceptamos vehículos de todas las marcas.
+
+¿Querés que te pongamos en contacto con un asesor para que te brinden más información?</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-per',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+</div>
+
+<div id="repuestos" class="section">
+  <div class="card">
+    <div class="lbl"><i class="ti ti-tool" aria-hidden="true"></i> Repuestos — Solo Marcas</div>
+    <div class="txt" id="s-rep">Buenas [días/tardes]!
+
+Por consultas relacionadas a repuestos y accesorios de las marcas *Geely · JAC · Tata*, podés comunicarte por los siguientes medios:
+
+📞 Teléfono: 2924 7575
+📱 WhatsApp: 094 843 044 — 094 842 743
+
+📍 Rondeau 2165 esq. Colombia (Aguada, Montevideo)
+🕘 Lunes a viernes de 09:00 a 18:00 hs.
+
+¡Quedamos a las órdenes! 😊</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-rep',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+</div>
+
+<div id="tasaciones" class="section">
+  <div class="card">
+    <div class="lbl"><i class="ti ti-scale" aria-hidden="true"></i> Tasaciones — Marcas y Chevrolet</div>
+    <div class="txt" id="s-tas">Las tasaciones no se realizan por este medio. Se llevan a cabo de forma presencial con un vendedor, quien podrá brindarte un precio de toma por tu vehículo y la diferencia correspondiente.
+
+¿Querés que te pongamos en contacto con uno de nuestros asesores?</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-tas',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+</div>
+
+<div id="ex2" class="section">
+  <div class="card">
+    <div class="lbl"><i class="ti ti-car" aria-hidden="true"></i> Modelo EX2 — Solo Marcas</div>
+    <div class="txt" id="s-ex2">Buenas [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
+
+El modelo *EX2* de Geely se comercializa únicamente mediante preventa, por lo que no contamos con unidades para entrega inmediata.
+
+Si deseás, podemos ponerte en contacto con uno de nuestros asesores comerciales para que te brinden mayor información.
+
+También podés explorar el catálogo completo de vehículos disponibles (filtrando por marca, precio, 0km, usado, sucursal, etc.):
+
+🔗 https://shoppingdeautos.uy/
+🔗 https://vehiculos.grupofiancar.com/</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-ex2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+</div>
+
+<div id="testdrive" class="section">
+  <div class="card">
+    <div class="lbl"><i class="ti ti-steering-wheel" aria-hidden="true"></i> Test drive — Solo Marcas</div>
+    <div class="txt" id="s-td">Buenas [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
+
+Nuestros vehículos *[MARCA]* los podés encontrar en las siguientes sucursales:
+
+📍 *Rondeau* — Av. Gral. Rondeau 2165 esq. Colombia
+   Lunes a viernes · 09:00 a 18:15 hs.
+
+📍 *Carrasco* — Av. Giannattasio esq. Tacuarí
+   Lunes a viernes · 10:00 a 18:30 hs.
+
+📍 *Shopping de Autos* — Ruta Interbalnearia Km 22.500
+   Todos los días · 10:00 a 19:00 hs.
+
+¡Te esperamos! 😊</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-td',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+</div>
+
+</div>
+
 <script>
-function switchTab(tab, btn) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
-  document.getElementById(tab).classList.add('active');
+function switchTab(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('#main-tabs .tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
   btn.classList.add('active');
 }
-function switchBrand(section, brand, btn) {
-  const sec = document.getElementById(section);
-  sec.querySelectorAll('.speech-panel').forEach(p => p.classList.remove('active'));
-  sec.querySelectorAll('.brand-btn').forEach(t => t.classList.remove('active'));
-  document.getElementById(section + '-' + brand).classList.add('active');
+function switchBrand(sec,brand,btn){
+  const s=document.getElementById(sec);
+  s.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  s.querySelectorAll('.brand-btn').forEach(t=>t.classList.remove('active'));
+  document.getElementById(sec+'-'+brand).classList.add('active');
   btn.classList.add('active');
 }
-function copyText(id, btn) {
-  navigator.clipboard.writeText(document.getElementById(id).innerText).then(() => {
-    btn.classList.add('copied');
-    btn.innerHTML = '<i class="ti ti-check" aria-hidden="true"></i> Copiado';
-    setTimeout(() => {
-      btn.classList.remove('copied');
-      btn.innerHTML = '<i class="ti ti-copy" aria-hidden="true"></i> Copiar';
-    }, 2000);
+function cp(id,btn){
+  navigator.clipboard.writeText(document.getElementById(id).innerText).then(()=>{
+    btn.classList.add('done');
+    btn.innerHTML='<i class="ti ti-check" aria-hidden="true"></i> Copiado';
+    setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='<i class="ti ti-copy" aria-hidden="true"></i> Copiar';},2000);
   });
 }
 </script>
