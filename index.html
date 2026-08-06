@@ -1,4 +1,3 @@
-
 <style>
 .root{background:#0f1117;border-radius:16px;padding:24px;color:#e2e8f0;font-family:var(--font-sans)}
 .hdr{display:flex;align-items:center;gap:10px;margin-bottom:20px}
@@ -12,6 +11,7 @@
 .tabs{display:flex;gap:6px;margin-bottom:18px;background:#1e2130;padding:5px;border-radius:12px;width:fit-content;flex-wrap:wrap}
 .tab{padding:6px 14px;border-radius:8px;border:none;background:transparent;color:#64748b;font-size:12px;cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);font-family:var(--font-sans);display:flex;align-items:center;gap:5px}
 .tab.active{background:#3b82f6;color:#fff;box-shadow:0 2px 12px #3b82f640}
+.tab:focus-visible,.brand-btn:focus-visible,.copy-btn:focus-visible{outline:2px solid #60a5fa;outline-offset:2px}
 .brand-row{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
 .brand-btn{padding:4px 13px;border-radius:999px;border:1px solid #2d3148;background:transparent;color:#64748b;font-size:12px;cursor:pointer;transition:all .2s;font-family:var(--font-sans)}
 .brand-btn.active{background:#1e2d40;border-color:#3b82f6;color:#60a5fa}
@@ -30,10 +30,23 @@
 .copy-btn:hover{background:#1e2130;border-color:#3b82f6;color:#60a5fa}
 .copy-btn.done{background:#0d2d1a;border-color:#22c55e;color:#4ade80}
 .arr{color:#334155;font-size:12px;padding:2px 4px;display:flex;align-items:center;gap:5px}
+
+/* ---- Bloque de llamada telefónica ---- */
+.split{height:1px;background:linear-gradient(90deg,#2d3148,transparent);margin:26px 0 20px}
+.call-hdr{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.call-hdr .logo{background:linear-gradient(135deg,#0ea5e9,#14b8a6)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:10px;align-items:start}
+.step-hd{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.num{width:22px;height:22px;border-radius:7px;background:#1e2d40;border:1px solid #3b82f655;color:#60a5fa;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-name{font-size:12px;font-weight:500;color:#e2e8f0;letter-spacing:.04em;text-transform:uppercase}
+.opt{font-size:10px;color:#475569;letter-spacing:.08em;text-transform:uppercase;margin:9px 0 5px}
+.tip{margin-top:10px;background:#141a2b;border-left:2px solid #14b8a6;border-radius:0 8px 8px 0;padding:8px 11px;font-size:11.5px;line-height:1.6;color:#94a3b8}
+.tip b{color:#5eead4;font-weight:500}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
 <div class="root">
-<h2 class="sr-only">Speeches de WhatsApp para Contact Center — Grupo Fiancar</h2>
+<h2 class="sr-only">Speeches de atención — Contact Center Grupo Fiancar</h2>
 <div class="hdr">
   <div class="logo" aria-hidden="true">💬</div>
   <div>
@@ -44,7 +57,7 @@
 
 <div class="notice">
   <i class="ti ti-alert-triangle" aria-hidden="true"></i>
-  <span>Leer el mensaje del cliente antes de enviar el saludo. Si ya indicó qué necesita, ir directamente al speech del caso.</span>
+  <span>Leer el mensaje del cliente antes de enviar el saludo. Si ya indicó qué necesita, ir directamente al speech del caso. Trato de usted en todos los canales.</span>
 </div>
 
 <div class="tabs" id="main-tabs">
@@ -62,8 +75,8 @@
 <div id="saludo" class="section active">
   <div class="card">
     <div class="lbl"><i class="ti ti-message-circle" aria-hidden="true"></i> Saludo inicial — Marcas y Chevrolet</div>
-    <div class="txt" id="s-saludo">Buenas [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
-¿En qué te puedo ayudar?</div>
+    <div class="txt" id="s-saludo">Buenos [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
+¿En qué le puedo ayudar?</div>
     <div class="foot"><button class="copy-btn" onclick="cp('s-saludo',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
   </div>
 </div>
@@ -76,9 +89,9 @@
   <div id="agenda-marcas" class="panel active">
     <div class="card">
       <div class="lbl"><i class="ti ti-message-circle" aria-hidden="true"></i> Solicitud de datos</div>
-      <div class="txt" id="s-ag-m1">Gracias por comunicarte con Grupo Fiancar, mi nombre es [NOMBRE] 😊
+      <div class="txt" id="s-ag-m1">Gracias por comunicarse con Grupo Fiancar, mi nombre es [NOMBRE] 😊
 
-A continuación te informo sobre las fechas disponibles en nuestros talleres:
+A continuación le informo las fechas disponibles en nuestros talleres:
 
 🔧 *Taller Carrasco:*
 ▸ [FECHA / HORARIO]
@@ -95,7 +108,7 @@ Para poder realizar la agenda, necesito los siguientes datos:
 • Kilometraje:
 • Turno preferido: Mañana / Tarde
 
-Una vez que me indiques en qué taller te queda mejor y los datos solicitados, procedemos. Te asignaremos la primera hora disponible. Si tenés preferencia por un horario en particular, indicánoslo y te confirmamos disponibilidad.</div>
+Una vez que me indique en qué taller le queda mejor y me envíe los datos solicitados, procedemos. Le asignaremos la primera hora disponible. Si tiene preferencia por un horario en particular, indíquenoslo y le confirmamos disponibilidad.</div>
       <div class="foot"><button class="copy-btn" onclick="cp('s-ag-m1',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
     </div>
     <div class="arr"><i class="ti ti-arrow-down" aria-hidden="true"></i> cuando el cliente envía sus datos</div>
@@ -103,20 +116,20 @@ Una vez que me indiques en qué taller te queda mejor y los datos solicitados, p
       <div class="lbl"><i class="ti ti-circle-check" aria-hidden="true"></i> Confirmación</div>
       <div class="txt" id="s-ag-m2">Gracias por aguardar 🙏
 
-Tu vehículo quedó agendado para el día *[DÍA]* a las *[HORA]* hs.
+Su vehículo quedó agendado para el día *[DÍA]* a las *[HORA]* hs.
 
-El día anterior nos comunicaremos para confirmar el turno.
+El día anterior nos comunicaremos con usted para confirmar el turno.
 
-¡Que tengas un excelente día! 😊</div>
+¡Que tenga un excelente día! 😊</div>
       <div class="foot"><button class="copy-btn" onclick="cp('s-ag-m2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
     </div>
   </div>
   <div id="agenda-chevrolet" class="panel">
     <div class="card">
       <div class="lbl"><i class="ti ti-message-circle" aria-hidden="true"></i> Solicitud de datos</div>
-      <div class="txt" id="s-ag-c1">Gracias por comunicarte con Chevrolet Montevideo, mi nombre es [NOMBRE] 😊
+      <div class="txt" id="s-ag-c1">Gracias por comunicarse con Chevrolet Montevideo, mi nombre es [NOMBRE] 😊
 
-A continuación te informo sobre las fechas disponibles en nuestro taller:
+A continuación le informo las fechas disponibles en nuestro taller:
 
 🔧 *Taller Chevrolet Montevideo:*
 ▸ [FECHA / HORARIO]
@@ -130,7 +143,7 @@ Para poder realizar la agenda, necesito los siguientes datos:
 • Kilometraje:
 • Turno preferido: Mañana / Tarde
 
-Una vez que me envíes los datos, procedemos. Te asignaremos la primera hora disponible. Si tenés preferencia por un horario en particular, indicánoslo y te confirmamos disponibilidad.</div>
+Una vez que me envíe los datos, procedemos. Le asignaremos la primera hora disponible. Si tiene preferencia por un horario en particular, indíquenoslo y le confirmamos disponibilidad.</div>
       <div class="foot"><button class="copy-btn" onclick="cp('s-ag-c1',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
     </div>
     <div class="arr"><i class="ti ti-arrow-down" aria-hidden="true"></i> cuando el cliente envía sus datos</div>
@@ -138,11 +151,11 @@ Una vez que me envíes los datos, procedemos. Te asignaremos la primera hora dis
       <div class="lbl"><i class="ti ti-circle-check" aria-hidden="true"></i> Confirmación</div>
       <div class="txt" id="s-ag-c2">Gracias por aguardar 🙏
 
-Tu vehículo quedó agendado para el día *[DÍA]* a las *[HORA]* hs.
+Su vehículo quedó agendado para el día *[DÍA]* a las *[HORA]* hs.
 
-El día anterior nos comunicaremos para confirmar el turno.
+El día anterior nos comunicaremos con usted para confirmar el turno.
 
-¡Que tengas un excelente día! 😊</div>
+¡Que tenga un excelente día! 😊</div>
       <div class="foot"><button class="copy-btn" onclick="cp('s-ag-c2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
     </div>
   </div>
@@ -156,15 +169,15 @@ El día anterior nos comunicaremos para confirmar el turno.
   <div id="lead-marcas" class="panel active">
     <div class="card">
       <div class="lbl"><i class="ti ti-message-circle" aria-hidden="true"></i> Consulta inicial</div>
-      <div class="txt" id="s-ld-m1">Gracias por comunicarte con Grupo Fiancar, mi nombre es [NOMBRE] 😊
+      <div class="txt" id="s-ld-m1">Gracias por comunicarse con Grupo Fiancar, mi nombre es [NOMBRE] 😊
 
-¿Qué sucursal preferís?
+¿Qué sucursal prefiere?
 
 🏢 Rondeau
 🏢 Shopping de Autos
 🏢 Carrasco
 
-Para derivarte con un asesor comercial, necesito los siguientes datos:
+Para poder derivar su consulta a un asesor comercial, necesito los siguientes datos:
 
 • Marca de interés:
 • Modelo de interés:
@@ -177,18 +190,18 @@ Para derivarte con un asesor comercial, necesito los siguientes datos:
       <div class="lbl"><i class="ti ti-circle-check" aria-hidden="true"></i> Cierre</div>
       <div class="txt" id="s-ld-m2">¡Gracias por la información! 🙌
 
-Uno de nuestros asesores comerciales se pondrá en contacto contigo a la brevedad.
+Uno de nuestros asesores comerciales se pondrá en contacto con usted a la brevedad.
 
-¡Que tengas un excelente día! 😊</div>
+¡Que tenga un excelente día! 😊</div>
       <div class="foot"><button class="copy-btn" onclick="cp('s-ld-m2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
     </div>
   </div>
   <div id="lead-chevrolet" class="panel">
     <div class="card">
       <div class="lbl"><i class="ti ti-message-circle" aria-hidden="true"></i> Consulta inicial</div>
-      <div class="txt" id="s-ld-c1">Gracias por comunicarte con Chevrolet Montevideo, mi nombre es [NOMBRE] 😊
+      <div class="txt" id="s-ld-c1">Gracias por comunicarse con Chevrolet Montevideo, mi nombre es [NOMBRE] 😊
 
-Para derivarte con un asesor comercial, necesito los siguientes datos:
+Para poder derivar su consulta a un asesor comercial, necesito los siguientes datos:
 
 • Modelo de interés:
 • Nombre de contacto:
@@ -200,9 +213,9 @@ Para derivarte con un asesor comercial, necesito los siguientes datos:
       <div class="lbl"><i class="ti ti-circle-check" aria-hidden="true"></i> Cierre</div>
       <div class="txt" id="s-ld-c2">¡Gracias por la información! 🙌
 
-Uno de nuestros asesores comerciales se pondrá en contacto contigo a la brevedad.
+Uno de nuestros asesores comerciales se pondrá en contacto con usted a la brevedad.
 
-¡Que tengas un excelente día! 😊</div>
+¡Que tenga un excelente día! 😊</div>
       <div class="foot"><button class="copy-btn" onclick="cp('s-ld-c2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
     </div>
   </div>
@@ -211,7 +224,7 @@ Uno de nuestros asesores comerciales se pondrá en contacto contigo a la breveda
 <div id="financiacion" class="section">
   <div class="card">
     <div class="lbl"><i class="ti ti-credit-card" aria-hidden="true"></i> Financiación — Marcas y Chevrolet</div>
-    <div class="txt" id="s-fin">En Grupo Fiancar te ofrecemos múltiples opciones para financiar tu vehículo nuevo o usado:
+    <div class="txt" id="s-fin">En Grupo Fiancar le ofrecemos múltiples opciones para financiar su vehículo nuevo o usado:
 
 💳 *Financiación propia:*
 ▸ Hasta el 60% del valor
@@ -220,11 +233,11 @@ Uno de nuestros asesores comerciales se pondrá en contacto contigo a la breveda
 
 🏦 *Financiación externa:*
 ▸ 100% a través de Mi Auto Santander
-▸ Con el banco de tu preferencia
+▸ Con el banco de su preferencia
 
-🔄 También podemos tomar tu usado como parte de pago.
+🔄 También podemos tomar su usado como parte de pago.
 
-¿Querés que te pongamos en contacto con un asesor para más detalles?</div>
+¿Desea que un asesor se comunique con usted para brindarle más detalles?</div>
     <div class="foot"><button class="copy-btn" onclick="cp('s-fin',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
   </div>
 </div>
@@ -232,9 +245,9 @@ Uno de nuestros asesores comerciales se pondrá en contacto contigo a la breveda
 <div id="permuta" class="section">
   <div class="card">
     <div class="lbl"><i class="ti ti-arrows-exchange" aria-hidden="true"></i> Permuta — Solo Marcas</div>
-    <div class="txt" id="s-per">Sí, podemos recibir tu usado como parte de pago. Aceptamos vehículos de todas las marcas.
+    <div class="txt" id="s-per">Sí, podemos recibir su usado como parte de pago. Aceptamos vehículos de todas las marcas.
 
-¿Querés que te pongamos en contacto con un asesor para que te brinden más información?</div>
+¿Desea que un asesor se comunique con usted para brindarle más información?</div>
     <div class="foot"><button class="copy-btn" onclick="cp('s-per',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
   </div>
 </div>
@@ -242,9 +255,9 @@ Uno de nuestros asesores comerciales se pondrá en contacto contigo a la breveda
 <div id="repuestos" class="section">
   <div class="card">
     <div class="lbl"><i class="ti ti-tool" aria-hidden="true"></i> Repuestos — Solo Marcas</div>
-    <div class="txt" id="s-rep">Buenas [días/tardes]!
+    <div class="txt" id="s-rep">Buenos [días/tardes]!
 
-Por consultas relacionadas a repuestos y accesorios de las marcas *Geely · JAC · Tata*, podés comunicarte por los siguientes medios:
+Por consultas relacionadas a repuestos y accesorios de las marcas *Geely · JAC · Tata*, puede comunicarse por los siguientes medios:
 
 📞 Teléfono: 2924 7575
 📱 WhatsApp: 094 843 044 — 094 842 743
@@ -260,9 +273,9 @@ Por consultas relacionadas a repuestos y accesorios de las marcas *Geely · JAC 
 <div id="tasaciones" class="section">
   <div class="card">
     <div class="lbl"><i class="ti ti-scale" aria-hidden="true"></i> Tasaciones — Marcas y Chevrolet</div>
-    <div class="txt" id="s-tas">Las tasaciones no se realizan por este medio. Se llevan a cabo de forma presencial con un vendedor, quien podrá brindarte un precio de toma por tu vehículo y la diferencia correspondiente.
+    <div class="txt" id="s-tas">Las tasaciones no se realizan por este medio. Se llevan a cabo de forma presencial con un vendedor, quien podrá brindarle un precio de toma por su vehículo y la diferencia correspondiente.
 
-¿Querés que te pongamos en contacto con uno de nuestros asesores?</div>
+¿Desea que un asesor se comunique con usted para coordinar?</div>
     <div class="foot"><button class="copy-btn" onclick="cp('s-tas',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
   </div>
 </div>
@@ -270,13 +283,13 @@ Por consultas relacionadas a repuestos y accesorios de las marcas *Geely · JAC 
 <div id="ex2" class="section">
   <div class="card">
     <div class="lbl"><i class="ti ti-car" aria-hidden="true"></i> Modelo EX2 — Solo Marcas</div>
-    <div class="txt" id="s-ex2">Buenas [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
+    <div class="txt" id="s-ex2">Buenos [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
 
 El modelo *EX2* de Geely se comercializa únicamente mediante preventa, por lo que no contamos con unidades para entrega inmediata.
 
-Si deseás, podemos ponerte en contacto con uno de nuestros asesores comerciales para que te brinden mayor información.
+Si lo desea, podemos ponerlo en contacto con uno de nuestros asesores comerciales para que le brinden mayor información.
 
-También podés explorar el catálogo completo de vehículos disponibles (filtrando por marca, precio, 0km, usado, sucursal, etc.):
+También puede explorar el catálogo completo de vehículos disponibles (filtrando por marca, precio, 0km, usado, sucursal, etc.):
 
 🔗 https://shoppingdeautos.uy/
 🔗 https://vehiculos.grupofiancar.com/</div>
@@ -287,9 +300,9 @@ También podés explorar el catálogo completo de vehículos disponibles (filtra
 <div id="testdrive" class="section">
   <div class="card">
     <div class="lbl"><i class="ti ti-steering-wheel" aria-hidden="true"></i> Test drive — Solo Marcas</div>
-    <div class="txt" id="s-td">Buenas [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
+    <div class="txt" id="s-td">Buenos [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
 
-Nuestros vehículos *[MARCA]* los podés encontrar en las siguientes sucursales:
+Nuestros vehículos *[MARCA]* los puede encontrar en las siguientes sucursales:
 
 📍 *Rondeau* — Av. Gral. Rondeau 2165 esq. Colombia
    Lunes a viernes · 09:00 a 18:15 hs.
@@ -300,9 +313,74 @@ Nuestros vehículos *[MARCA]* los podés encontrar en las siguientes sucursales:
 📍 *Shopping de Autos* — Ruta Interbalnearia Km 22.500
    Todos los días · 10:00 a 19:00 hs.
 
-¡Te esperamos! 😊</div>
+¡Lo esperamos! 😊</div>
     <div class="foot"><button class="copy-btn" onclick="cp('s-td',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
   </div>
+</div>
+
+<!-- ================= LLAMADA TELEFÓNICA ================= -->
+<div class="split"></div>
+
+<div class="call-hdr">
+  <div class="hdr" style="margin:0">
+    <div class="logo" aria-hidden="true">📞</div>
+    <div>
+      <div class="title">Speech de llamada</div>
+      <div class="sub">Estructura de la llamada · seguir los 5 pasos en orden</div>
+    </div>
+  </div>
+  <div class="brand-row" style="margin:0">
+    <button class="brand-btn active" onclick="setCallBrand('Grupo Fiancar',this)">Marcas</button>
+    <button class="brand-btn" onclick="setCallBrand('Chevrolet Montevideo',this)">Chevrolet</button>
+  </div>
+</div>
+
+<div class="steps">
+
+  <div class="card">
+    <div class="step-hd"><span class="num">1</span><span class="step-name">Saludo</span></div>
+    <div class="txt" id="c1"><span class="brandname">Grupo Fiancar</span>, buenos días/tardes…</div>
+    <div class="tip"><b>Tener en cuenta:</b> siempre el nombre de la empresa según la línea que entra, y el saludo acorde a la hora. Evitar arrancar con "hola" o "¿aló?".</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('c1',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+
+  <div class="card">
+    <div class="step-hd"><span class="num">2</span><span class="step-name">Identificación</span></div>
+    <div class="txt" id="c2">…mi nombre es [NOMBRE], ¿en qué le puedo ayudar?</div>
+    <div class="tip"><b>Tener en cuenta:</b> el nombre propio va enseguida del saludo, en la misma frase, y se cierra con la pregunta abierta para que el cliente hable.</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('c2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+
+  <div class="card">
+    <div class="step-hd"><span class="num">3</span><span class="step-name">Comprensión</span></div>
+    <div class="opt">Opción A — confirmar la solicitud</div>
+    <div class="txt" id="c3a">Perfecto, entonces para confirmar que entendí correctamente, lo que usted necesita es [RESUMEN DE LA SOLICITUD].</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('c3a',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+    <div class="opt">Opción B — confirmar consulta + problema</div>
+    <div class="txt" id="c3b">Permítame repetirlo para asegurarme de haber entendido bien: usted está consultando por [TEMA] y el problema es [DETALLE DEL PROBLEMA], ¿es correcto?</div>
+    <div class="tip"><b>Tener en cuenta:</b> repetir el pedido con palabras propias y esperar el "sí" del cliente antes de pasar a resolver. Decir solo "entiendo" no confirma nada.</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('c3b',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+
+  <div class="card">
+    <div class="step-hd"><span class="num">4</span><span class="step-name">Resolución</span></div>
+    <div class="opt">Debe incluir · qué se va a hacer · cuándo · cómo lo impacta</div>
+    <div class="txt" id="c4">Vamos a elevar su caso al sector correspondiente. Le dejo este número como referencia de seguimiento: [N.º DE CASO].
+
+Se estará comunicando con usted [PLAZO]. Mientras tanto, no necesita realizar ninguna gestión adicional.</div>
+    <div class="tip"><b>Tener en cuenta:</b> nunca cerrar sin los tres datos (qué se hace, cuándo, qué tiene que hacer el cliente). Si no se resuelve en la llamada, queda registrado en Vtiger y se le avisa.</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('c4',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+
+  <div class="card">
+    <div class="step-hd"><span class="num">5</span><span class="step-name">Saludo final</span></div>
+    <div class="txt" id="c5">¿Hay algo más en lo que le pueda ayudar?
+
+[Si no] Que tenga un excelente día/tarde. Gracias por llamar a <span class="brandname">Grupo Fiancar</span>.</div>
+    <div class="tip"><b>Tener en cuenta:</b> ofrecer ayuda adicional antes de despedirse y esperar a que el cliente corte primero. Sostener el trato de usted hasta el final de la llamada.</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('c5',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+
 </div>
 
 </div>
@@ -319,6 +397,11 @@ function switchBrand(sec,brand,btn){
   s.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   s.querySelectorAll('.brand-btn').forEach(t=>t.classList.remove('active'));
   document.getElementById(sec+'-'+brand).classList.add('active');
+  btn.classList.add('active');
+}
+function setCallBrand(name,btn){
+  document.querySelectorAll('.brandname').forEach(e=>e.textContent=name);
+  btn.parentElement.querySelectorAll('.brand-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
 }
 function cp(id,btn){
