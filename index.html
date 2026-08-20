@@ -64,11 +64,15 @@
   <button class="tab active" onclick="switchTab('saludo',this)"><i class="ti ti-hand-stop" aria-hidden="true"></i> Saludo</button>
   <button class="tab" onclick="switchTab('agenda',this)"><i class="ti ti-calendar" aria-hidden="true"></i> Agenda</button>
   <button class="tab" onclick="switchTab('lead',this)"><i class="ti ti-user-plus" aria-hidden="true"></i> Consulta modelo</button>
+  <button class="tab" onclick="switchTab('precios',this)"><i class="ti ti-tag" aria-hidden="true"></i> Precios</button>
+  <button class="tab" onclick="switchTab('ficha',this)"><i class="ti ti-file-text" aria-hidden="true"></i> Ficha técnica</button>
   <button class="tab" onclick="switchTab('financiacion',this)"><i class="ti ti-credit-card" aria-hidden="true"></i> Financiación</button>
   <button class="tab" onclick="switchTab('permuta',this)"><i class="ti ti-arrows-exchange" aria-hidden="true"></i> Permuta</button>
   <button class="tab" onclick="switchTab('repuestos',this)"><i class="ti ti-tool" aria-hidden="true"></i> Repuestos</button>
   <button class="tab" onclick="switchTab('tasaciones',this)"><i class="ti ti-scale" aria-hidden="true"></i> Tasaciones</button>
   <button class="tab" onclick="switchTab('ex2',this)"><i class="ti ti-car" aria-hidden="true"></i> Modelo EX2</button>
+  <button class="tab" onclick="switchTab('novedades',this)"><i class="ti ti-bell" aria-hidden="true"></i> Novedades</button>
+  <button class="tab" onclick="switchTab('entrega',this)"><i class="ti ti-clock-exclamation" aria-hidden="true"></i> Entrega demorada</button>
   <button class="tab" onclick="switchTab('testdrive',this)"><i class="ti ti-steering-wheel" aria-hidden="true"></i> Test drive</button>
 </div>
 
@@ -221,6 +225,44 @@ Uno de nuestros asesores comerciales se pondrá en contacto con usted a la breve
   </div>
 </div>
 
+<div id="precios" class="section">
+  <div class="card">
+    <div class="lbl"><i class="ti ti-tag" aria-hidden="true"></i> Modelo con una sola versión</div>
+    <div class="txt" id="s-pr1">Buenos [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
+
+El precio del *[MARCA] [MODELO]* es de USD [PRECIO].
+
+Si desea recibir toda la información, indíquenos un contacto y nos comunicamos con usted para brindarle todos los detalles.</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-pr1',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+  <div class="card">
+    <div class="lbl"><i class="ti ti-tags" aria-hidden="true"></i> Modelo con más de una versión</div>
+    <div class="txt" id="s-pr2">Buenos [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
+
+El modelo *[MARCA] [MODELO]* está disponible en [X] versiones:
+
+▸ *[VERSIÓN 1]* — USD [PRECIO]
+▸ *[VERSIÓN 2]* — USD [PRECIO]
+
+Si desea conocer las diferencias entre las versiones y recibir toda la información, indíquenos un contacto y nos comunicamos con usted para brindarle todos los detalles.</div>
+    <div class="tip"><b>Tener en cuenta:</b> agregar o quitar líneas ▸ según la cantidad real de versiones y ajustar el número en [X]. <b>Toda consulta por precio cierra pidiendo datos de contacto</b> — sin eso no se genera el lead ni queda registro en Vtiger.</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-pr2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+</div>
+
+<div id="ficha" class="section">
+  <div class="card">
+    <div class="lbl"><i class="ti ti-file-text" aria-hidden="true"></i> Envío de ficha técnica — Marcas y Chevrolet</div>
+    <div class="txt" id="s-fic">Buenos [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
+
+Le enviamos la ficha técnica del *[MARCA] [MODELO]* para que pueda ver el detalle 📄
+
+Si desea recibir toda la información, indíquenos un contacto y nos comunicamos con usted para brindarle todos los detalles.</div>
+    <div class="tip"><b>Tener en cuenta:</b> adjuntar el PDF en el mismo envío que el mensaje, no en un mensaje aparte. Confirmar que la ficha corresponda a la versión consultada antes de enviarla.</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-fic',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+</div>
+
 <div id="financiacion" class="section">
   <div class="card">
     <div class="lbl"><i class="ti ti-credit-card" aria-hidden="true"></i> Financiación — Marcas y Chevrolet</div>
@@ -253,20 +295,79 @@ Uno de nuestros asesores comerciales se pondrá en contacto con usted a la breve
 </div>
 
 <div id="repuestos" class="section">
-  <div class="card">
-    <div class="lbl"><i class="ti ti-tool" aria-hidden="true"></i> Repuestos — Solo Marcas</div>
-    <div class="txt" id="s-rep">Buenos [días/tardes]!
+  <div class="brand-row">
+    <button class="brand-btn active" onclick="switchBrand('repuestos','geely',this)">Geely</button>
+    <button class="brand-btn" onclick="switchBrand('repuestos','jac',this)">JAC</button>
+    <button class="brand-btn" onclick="switchBrand('repuestos','lynk',this)">Lynk &amp; Co.</button>
+    <button class="brand-btn" onclick="switchBrand('repuestos','tata',this)">Tata</button>
+  </div>
+  <div id="repuestos-geely" class="panel active">
+    <div class="card">
+      <div class="lbl"><i class="ti ti-tool" aria-hidden="true"></i> Repuestos Geely — Solo Marcas</div>
+      <div class="txt" id="s-rep-geely">Buenos [días/tardes]!
 
-Por consultas relacionadas a repuestos y accesorios de las marcas *Geely · JAC · Tata*, puede comunicarse por los siguientes medios:
+Por consultas de repuestos y accesorios *Geely*, puede comunicarse por los siguientes medios:
 
-📞 Teléfono: 2924 7575
-📱 WhatsApp: 094 843 044 — 094 842 743
+📱 WhatsApp: 094 842 743 — 094 843 044
+📞 Central: 2924 7575
 
 📍 Rondeau 2165 esq. Colombia (Aguada, Montevideo)
 🕘 Lunes a viernes de 09:00 a 18:00 hs.
 
 ¡Quedamos a las órdenes! 😊</div>
-    <div class="foot"><button class="copy-btn" onclick="cp('s-rep',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+      <div class="foot"><button class="copy-btn" onclick="cp('s-rep-geely',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+    </div>
+  </div>
+  <div id="repuestos-jac" class="panel">
+    <div class="card">
+      <div class="lbl"><i class="ti ti-tool" aria-hidden="true"></i> Repuestos JAC — Solo Marcas</div>
+      <div class="txt" id="s-rep-jac">Buenos [días/tardes]!
+
+Por consultas de repuestos y accesorios *JAC*, puede comunicarse por los siguientes medios:
+
+📱 WhatsApp: 094 842 743 — 094 843 044
+📞 Central: 2924 7575
+
+📍 Rondeau 2165 esq. Colombia (Aguada, Montevideo)
+🕘 Lunes a viernes de 09:00 a 18:00 hs.
+
+¡Quedamos a las órdenes! 😊</div>
+      <div class="foot"><button class="copy-btn" onclick="cp('s-rep-jac',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+    </div>
+  </div>
+  <div id="repuestos-lynk" class="panel">
+    <div class="card">
+      <div class="lbl"><i class="ti ti-tool" aria-hidden="true"></i> Repuestos Lynk &amp; Co. — Solo Marcas</div>
+      <div class="txt" id="s-rep-lynk">Buenos [días/tardes]!
+
+Por consultas de repuestos y accesorios *Lynk & Co.*, puede comunicarse por los siguientes medios:
+
+📱 WhatsApp: 094 842 743 — 094 843 044
+📞 Central: 2924 7575
+
+📍 Rondeau 2165 esq. Colombia (Aguada, Montevideo)
+🕘 Lunes a viernes de 09:00 a 18:00 hs.
+
+¡Quedamos a las órdenes! 😊</div>
+      <div class="foot"><button class="copy-btn" onclick="cp('s-rep-lynk',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+    </div>
+  </div>
+  <div id="repuestos-tata" class="panel">
+    <div class="card">
+      <div class="lbl"><i class="ti ti-tool" aria-hidden="true"></i> Repuestos Tata — Solo Marcas</div>
+      <div class="txt" id="s-rep-tata">Buenos [días/tardes]!
+
+Por consultas de repuestos y accesorios *Tata*, puede comunicarse por los siguientes medios:
+
+📱 WhatsApp: 094 842 743 — 094 843 044
+📞 Central: 2924 7575
+
+📍 Rondeau 2165 esq. Colombia (Aguada, Montevideo)
+🕘 Lunes a viernes de 09:00 a 18:00 hs.
+
+¡Quedamos a las órdenes! 😊</div>
+      <div class="foot"><button class="copy-btn" onclick="cp('s-rep-tata',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+    </div>
   </div>
 </div>
 
@@ -294,6 +395,57 @@ También puede explorar el catálogo completo de vehículos disponibles (filtran
 🔗 https://shoppingdeautos.uy/
 🔗 https://vehiculos.grupofiancar.com/</div>
     <div class="foot"><button class="copy-btn" onclick="cp('s-ex2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+</div>
+
+<div id="novedades" class="section">
+  <div class="card">
+    <div class="lbl"><i class="ti ti-bell" aria-hidden="true"></i> Modelo sin confirmar / sin novedades</div>
+    <div class="opt">Opción A — cierre simple</div>
+    <div class="txt" id="s-nov1">Buenos [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
+
+Por el momento no tenemos novedades sobre ese modelo. Lo invitamos a seguir nuestras redes sociales, donde publicamos constantemente nuestros lanzamientos 📲
+
+¡Quedamos a las órdenes! 😊</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-nov1',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+    <div class="opt">Opción B — el cliente pide que le avisemos</div>
+    <div class="txt" id="s-nov2">Buenos [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
+
+Por el momento no tenemos novedades sobre ese modelo. Lo invitamos a seguir nuestras redes sociales, donde publicamos constantemente nuestros lanzamientos 📲
+
+Si lo desea, puede dejarnos su nombre y un contacto, y le avisamos ni bien tengamos información.</div>
+    <div class="tip"><b>Tener en cuenta:</b> usar la Opción B <b>solo si el contacto se carga en Vtiger</b>. Si no queda registrado, es una promesa que nadie va a cumplir y vuelve como reclamo. Nunca confirmar que el modelo va a llegar ni dar fechas estimadas.</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-nov2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+</div>
+
+<div id="entrega" class="section">
+  <div class="card">
+    <div class="lbl"><i class="ti ti-message-circle" aria-hidden="true"></i> Primer contacto — relevamiento del caso</div>
+    <div class="txt" id="s-ent1">Buenos [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar. Disculpe la demora en nuestra respuesta 🙏
+
+Para poder verificar su caso y ayudarlo, necesitamos que nos brinde algunos datos. Le comentamos que las entregas están demoradas, pero estamos trabajando para que puedan realizarse lo antes posible.
+
+Por favor, indíquenos:
+
+• Nombre del asesor de ventas:
+• En qué automotora realizó la compra:
+• Qué modelo compró:
+
+Quedamos atentos a su respuesta. ¡Gracias por su paciencia! 😊</div>
+    <div class="tip"><b>Tener en cuenta:</b> no dar fechas ni plazos estimados. Con los datos que envía el cliente, <b>registrar el caso en Vtiger</b> y derivarlo al asesor/sucursal correspondiente antes de responder de nuevo.</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-ent1',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+  <div class="arr"><i class="ti ti-arrow-down" aria-hidden="true"></i> si el cliente insiste o vuelve a reclamar</div>
+  <div class="card">
+    <div class="lbl"><i class="ti ti-alert-circle" aria-hidden="true"></i> Cliente insiste — caso ya registrado</div>
+    <div class="txt" id="s-ent2">Entendemos su preocupación y le pedimos disculpas por la espera 🙏
+
+La entrega de su vehículo quedó registrada como *prioridad*. Estamos aguardando que la unidad sea liberada para poder coordinar la fecha de entrega.
+
+Ni bien esto suceda, nos comunicamos con usted para coordinar día y horario.</div>
+    <div class="tip"><b>Tener en cuenta:</b> este mensaje se envía <b>solo si el caso ya fue elevado</b>. Si el cliente vuelve por tercera vez, no repetir el speech: escalar al responsable de la sucursal y avisar al coordinador.</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-ent2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
   </div>
 </div>
 
