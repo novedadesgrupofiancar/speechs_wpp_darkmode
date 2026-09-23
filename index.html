@@ -1,47 +1,59 @@
 <style>
-.root{background:#0f1117;border-radius:16px;padding:24px;color:#e2e8f0;font-family:var(--font-sans)}
-.hdr{display:flex;align-items:center;gap:10px;margin-bottom:20px}
-.logo{width:36px;height:36px;background:linear-gradient(135deg,#3b82f6,#6366f1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
-.title{font-size:15px;font-weight:500;color:#f1f5f9}
-.sub{font-size:12px;color:#64748b}
-.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite;margin-left:4px;vertical-align:2px}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+.root{
+  --ui:'Inter','Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+  --bg:#141824;--card:#1e2334;--box:#0e1119;--line:#333a52;
+  --tx:#eaf0f9;--tx2:#c3d0e2;--tx3:#9badc4;--ac:#6aa5ff;
+  background:var(--bg);border-radius:16px;padding:26px;color:var(--tx);
+  font-family:var(--ui);font-size:15px;-webkit-font-smoothing:antialiased
+}
+.hdr{display:flex;align-items:center;gap:11px;margin-bottom:20px}
+.logo{width:38px;height:38px;background:linear-gradient(135deg,#3b82f6,#6366f1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:19px}
+.title{font-size:17px;font-weight:600;color:#fff;letter-spacing:-.01em}
+.sub{font-size:13.5px;color:var(--tx3)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite;margin-left:5px;vertical-align:2px}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.notice{background:#1a2035;border:1px solid #f59e0b44;border-radius:10px;padding:10px 14px;font-size:12px;color:#fbbf24;margin-bottom:18px;display:flex;align-items:flex-start;gap:8px}
-.notice i{margin-top:1px;flex-shrink:0}
-.tabs{display:flex;gap:6px;margin-bottom:18px;background:#1e2130;padding:5px;border-radius:12px;width:fit-content;flex-wrap:wrap}
-.tab{padding:6px 14px;border-radius:8px;border:none;background:transparent;color:#64748b;font-size:12px;cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);font-family:var(--font-sans);display:flex;align-items:center;gap:5px}
-.tab.active{background:#3b82f6;color:#fff;box-shadow:0 2px 12px #3b82f640}
-.tab:focus-visible,.brand-btn:focus-visible,.copy-btn:focus-visible{outline:2px solid #60a5fa;outline-offset:2px}
-.brand-row{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
-.brand-btn{padding:4px 13px;border-radius:999px;border:1px solid #2d3148;background:transparent;color:#64748b;font-size:12px;cursor:pointer;transition:all .2s;font-family:var(--font-sans)}
-.brand-btn.active{background:#1e2d40;border-color:#3b82f6;color:#60a5fa}
+.notice{background:#221d10;border:1px solid #f59e0b55;border-radius:10px;padding:12px 15px;font-size:14px;line-height:1.6;color:#fcd34d;margin-bottom:18px;display:flex;align-items:flex-start;gap:9px}
+.notice i{margin-top:2px;flex-shrink:0}
+.tabs{display:flex;gap:6px;margin-bottom:18px;background:#181c2a;padding:6px;border-radius:12px;width:fit-content;flex-wrap:wrap}
+.tab{padding:8px 15px;border-radius:8px;border:none;background:transparent;color:var(--tx3);font-size:14px;font-weight:500;cursor:pointer;transition:all .22s cubic-bezier(.4,0,.2,1);font-family:var(--ui);display:flex;align-items:center;gap:6px}
+.tab:hover{color:var(--tx2);background:#222840}
+.tab.active{background:#2f6fdb;color:#fff;box-shadow:0 2px 12px #2f6fdb55}
+.tab.active:hover{background:#2f6fdb;color:#fff}
+.tab:focus-visible,.brand-btn:focus-visible,.copy-btn:focus-visible{outline:2px solid #8ab8ff;outline-offset:2px}
+.brand-row{display:flex;gap:7px;margin-bottom:14px;flex-wrap:wrap}
+.brand-btn{padding:6px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--tx3);font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;font-family:var(--ui)}
+.brand-btn:hover{color:var(--tx2);border-color:#46507a}
+.brand-btn.active{background:#1d3352;border-color:#4b8ef5;color:#8fc0ff}
 .section{display:none;animation:fs .28s cubic-bezier(.4,0,.2,1)}
 .section.active{display:block}
 @keyframes fs{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
-.panel{display:none;flex-direction:column;gap:10px}
+.panel{display:none;flex-direction:column;gap:11px}
 .panel.active{display:flex;animation:fs .22s cubic-bezier(.4,0,.2,1)}
-.card{background:#1a1d2e;border:1px solid #2d3148;border-radius:14px;padding:14px 16px;transition:border-color .2s}
-.card:hover{border-color:#3b4368}
-.lbl{font-size:11px;font-weight:500;color:#64748b;letter-spacing:.07em;text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:5px}
-.lbl i{font-size:13px;color:#3b82f6}
-.txt{background:#0f1117;border:1px solid #2d3148;border-radius:10px;padding:13px 15px;font-size:13px;line-height:1.72;color:#cbd5e1;white-space:pre-wrap;font-family:var(--font-mono)}
-.foot{display:flex;justify-content:flex-end;margin-top:9px}
-.copy-btn{display:flex;align-items:center;gap:5px;padding:5px 13px;border-radius:8px;border:1px solid #2d3148;background:transparent;color:#94a3b8;font-size:12px;cursor:pointer;transition:all .2s;font-family:var(--font-sans)}
-.copy-btn:hover{background:#1e2130;border-color:#3b82f6;color:#60a5fa}
-.copy-btn.done{background:#0d2d1a;border-color:#22c55e;color:#4ade80}
-.arr{color:#334155;font-size:12px;padding:2px 4px;display:flex;align-items:center;gap:5px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px 19px;margin-bottom:11px;transition:border-color .2s}
+.card:hover{border-color:#47517a}
+.lbl{font-size:12.5px;font-weight:600;color:var(--tx3);letter-spacing:.07em;text-transform:uppercase;margin-bottom:11px;display:flex;align-items:center;gap:6px}
+.lbl i{font-size:15px;color:var(--ac)}
+.txt{background:var(--box);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:16px;line-height:1.78;color:var(--tx);white-space:pre-wrap;font-family:var(--ui)}
+.foot{display:flex;justify-content:flex-end;margin-top:10px}
+.copy-btn{display:flex;align-items:center;gap:6px;padding:7px 15px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--tx2);font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;font-family:var(--ui)}
+.copy-btn:hover{background:#242a42;border-color:#4b8ef5;color:#8fc0ff}
+.copy-btn.done{background:#0f3320;border-color:#22c55e;color:#6ee7a0}
+.arr{color:var(--tx3);font-size:13.5px;padding:4px 4px 10px;display:flex;align-items:center;gap:6px}
 
 /* ---- Bloque de llamada telefónica ---- */
-.split{height:1px;background:linear-gradient(90deg,#2d3148,transparent);margin:26px 0 20px}
+.split{height:1px;background:linear-gradient(90deg,var(--line),transparent);margin:28px 0 22px}
 .call-hdr{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px}
 .call-hdr .logo{background:linear-gradient(135deg,#0ea5e9,#14b8a6)}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:10px;align-items:start}
-.step-hd{display:flex;align-items:center;gap:9px;margin-bottom:10px}
-.num{width:22px;height:22px;border-radius:7px;background:#1e2d40;border:1px solid #3b82f655;color:#60a5fa;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.step-name{font-size:12px;font-weight:500;color:#e2e8f0;letter-spacing:.04em;text-transform:uppercase}
-.opt{font-size:10px;color:#475569;letter-spacing:.08em;text-transform:uppercase;margin:9px 0 5px}
-.tip{margin-top:10px;background:#141a2b;border-left:2px solid #14b8a6;border-radius:0 8px 8px 0;padding:8px 11px;font-size:11.5px;line-height:1.6;color:#94a3b8}
-.tip b{color:#5eead4;font-weight:500}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:11px;align-items:start}
+.steps .card{margin-bottom:0}
+.step-hd{display:flex;align-items:center;gap:10px;margin-bottom:11px}
+.num{width:24px;height:24px;border-radius:7px;background:#1d3352;border:1px solid #4b8ef588;color:#8fc0ff;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-name{font-size:13.5px;font-weight:600;color:var(--tx);letter-spacing:.04em;text-transform:uppercase}
+.opt{font-size:12px;font-weight:600;color:var(--tx3);letter-spacing:.07em;text-transform:uppercase;margin:13px 0 7px}
+.tip{margin-top:11px;background:#15202e;border-left:3px solid #14b8a6;border-radius:0 8px 8px 0;padding:11px 14px;font-size:14px;line-height:1.65;color:var(--tx2)}
+.tip b{color:#7defd4;font-weight:600}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
@@ -67,6 +79,7 @@
   <button class="tab" onclick="switchTab('precios',this)"><i class="ti ti-tag" aria-hidden="true"></i> Precios</button>
   <button class="tab" onclick="switchTab('ficha',this)"><i class="ti ti-file-text" aria-hidden="true"></i> Ficha técnica</button>
   <button class="tab" onclick="switchTab('financiacion',this)"><i class="ti ti-credit-card" aria-hidden="true"></i> Financiación</button>
+  <button class="tab" onclick="switchTab('clearing',this)"><i class="ti ti-file-search" aria-hidden="true"></i> Clearing</button>
   <button class="tab" onclick="switchTab('permuta',this)"><i class="ti ti-arrows-exchange" aria-hidden="true"></i> Permuta</button>
   <button class="tab" onclick="switchTab('repuestos',this)"><i class="ti ti-tool" aria-hidden="true"></i> Repuestos</button>
   <button class="tab" onclick="switchTab('tasaciones',this)"><i class="ti ti-scale" aria-hidden="true"></i> Tasaciones</button>
@@ -97,15 +110,16 @@
 
 A continuación le informo las fechas disponibles en nuestros talleres:
 
-🔧 *Taller Carrasco: Avenida Giannattasio esquina Tacuarí, frente al Puente de las América*
+🔧 *Taller Carrasco:*
 ▸ [FECHA / HORARIO]
 
-🔧 *Taller Rondeau: Av. Rondeau 2165, esq Colombia*
+🔧 *Taller Rondeau:*
 ▸ [FECHA / HORARIO]
 
 Para poder realizar la agenda, necesito los siguientes datos:
 
 • Nombre completo:
+• Teléfono:
 • Correo electrónico:
 • Matrícula:
 • Kilometraje:
@@ -176,11 +190,11 @@ El día anterior nos comunicaremos con usted para confirmar el turno.
 
 ¿Qué sucursal prefiere?
 
-🏢 Rondeau: Av Rondeau 2165, esq. Colombia
-🏢 Shopping de Autos: Ruta Interbalnearia Km 22,500
-🏢 Carrasco: Avenida Giannattasio esquina Tacuarí, frente al Puente de las América
+🏢 Rondeau
+🏢 Shopping de Autos
+🏢 Carrasco
 
-Para poder derivar su consulta a un asesor comercial, le solicito los siguientes datos:
+Para poder derivar su consulta a un asesor comercial, necesito los siguientes datos:
 
 • Marca de interés:
 • Modelo de interés:
@@ -256,9 +270,7 @@ Si desea conocer las diferencias entre las versiones y recibir toda la informaci
 
 Le enviamos la ficha técnica del *[MARCA] [MODELO]* para que pueda ver el detalle 📄
 
-Si desea recibir toda la información, indíquenos un contacto y sucursal de preferencia y nos comunicamos con usted para brindarle todos los detalles
-      
-      ->Enviarle las sucursales según el modelo por el que consulta<- .</div>
+Si desea recibir toda la información, indíquenos un contacto y nos comunicamos con usted para brindarle todos los detalles.</div>
     <div class="tip"><b>Tener en cuenta:</b> adjuntar el PDF en el mismo envío que el mensaje, no en un mensaje aparte. Confirmar que la ficha corresponda a la versión consultada antes de enviarla.</div>
     <div class="foot"><button class="copy-btn" onclick="cp('s-fic',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
   </div>
@@ -285,6 +297,31 @@ Si desea recibir toda la información, indíquenos un contacto y sucursal de pre
   </div>
 </div>
 
+<div id="clearing" class="section">
+  <div class="card">
+    <div class="lbl"><i class="ti ti-file-search" aria-hidden="true"></i> Cliente en clearing — Marcas y Chevrolet</div>
+    <div class="txt" id="s-clr">Buenos [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
+
+Si la persona que desea financiar el vehículo se encuentra en clearing, realizamos un *estudio crediticio integral* para evaluar la posibilidad de otorgar el crédito.
+
+En ese caso quedaría descartada la financiación bancaria, ya que para el banco no estar en clearing es un requisito excluyente.
+
+💳 *Crédito de la casa:*
+▸ Entrega mínima inicial: 40% del valor del vehículo
+▸ Saldo restante: hasta 37 cuotas en dólares
+
+📄 *Documentación a presentar* (financiación propia o bancaria):
+
+1. Cédula de identidad vigente de los titulares
+2. Recibo de ente público (Antel, UTE, OSE, cable o gas)
+3. Últimos 4 recibos de sueldo
+
+¿Desea que un asesor se comunique con usted para avanzar con el estudio?</div>
+    <div class="tip"><b>Tener en cuenta:</b> nunca adelantar si el crédito va a salir ni estimar montos — el resultado lo define el área de créditos tras el estudio. El 40% de entrega es el <b>mínimo</b>, puede subir según el caso: no presentarlo como cifra cerrada.</div>
+    <div class="foot"><button class="copy-btn" onclick="cp('s-clr',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
+  </div>
+</div>
+
 <div id="permuta" class="section">
   <div class="card">
     <div class="lbl"><i class="ti ti-arrows-exchange" aria-hidden="true"></i> Permuta — Solo Marcas</div>
@@ -307,7 +344,7 @@ Si desea recibir toda la información, indíquenos un contacto y sucursal de pre
       <div class="lbl"><i class="ti ti-tool" aria-hidden="true"></i> Repuestos Geely — Solo Marcas</div>
       <div class="txt" id="s-rep-geely">Buenos [días/tardes]!
 
-Por consultas de repuestos y accesorios *Geely*, *Lynk And Co* o *JAC*, puede comunicarse por los siguientes medios:
+Por consultas de repuestos y accesorios *Geely*, puede comunicarse por los siguientes medios:
 
 📱 WhatsApp: 094 842 743 — 094 843 044
 📞 Central: 2924 7575
@@ -387,21 +424,14 @@ Por consultas de repuestos y accesorios *Tata*, puede comunicarse por los siguie
     <div class="lbl"><i class="ti ti-car" aria-hidden="true"></i> Modelo EX2 — Solo Marcas</div>
     <div class="txt" id="s-ex2">Buenos [días/tardes]! Mi nombre es [NOMBRE] de Grupo Fiancar.
 
-El modelo *EX2* se comercializa mediante preventa y está disponible en 2 versiones:
-      
-      MAX   &   PRO
+El modelo *EX2* de Geely se comercializa únicamente mediante preventa, por lo que no contamos con unidades para entrega inmediata.
 
 Si lo desea, podemos ponerlo en contacto con uno de nuestros asesores comerciales para que le brinden mayor información.
 
-¿Que sucursal le queda mas cómodo?
+También puede explorar el catálogo completo de vehículos disponibles (filtrando por marca, precio, 0km, usado, sucursal, etc.):
 
-      📍 *Rondeau* — Av. Gral. Rondeau 2165 esq. Colombia
-          Lunes a viernes · 09:00 a 18:15 hs.
-      
-      📍 *Carrasco* — Av. Giannattasio esq. Tacuarí
-          Lunes a viernes · 10:00 a 18:30 hs.
-
-</div>
+🔗 https://shoppingdeautos.uy/
+🔗 https://vehiculos.grupofiancar.com/</div>
     <div class="foot"><button class="copy-btn" onclick="cp('s-ex2',this)"><i class="ti ti-copy" aria-hidden="true"></i> Copiar</button></div>
   </div>
 </div>
